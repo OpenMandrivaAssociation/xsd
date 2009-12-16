@@ -19,6 +19,11 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  boost-devel
 BuildRequires:	xerces-c-devel
 BuildRequires:	m4
+# Requires:  ace-devel - only needed for applications using
+#                        Adaptive Communication Environment (ACE) streams,
+#                        enable when Fedora gets ACE packages.
+#                        See http://www.cs.wustl.edu/~schmidt/ACE.html and
+#                        https://bugzilla.redhat.com/show_bug.cgi?id=450164
 
 %description
 CodeSynthesis XSD is an open-source, cross-platform W3C XML Schema to
