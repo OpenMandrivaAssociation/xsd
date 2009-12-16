@@ -2,12 +2,12 @@
 %define rel 1
 %define release %mkrel %rel
 
-Name:           xsd
+Name:		xsd
 Version:        %{version}
 Release:        %{release}
 Summary:        W3C XML schema to C++ data binding compiler
 
-Group:          Development/Tools
+Group:          Development/C++
 # Exceptions permit otherwise GPLv2 incompatible combination with ASL 2.0
 License:        GPLv2 with exceptions and ASL 2.0  
 URL:            http://www.codesynthesis.com/products/xsd/
@@ -16,13 +16,9 @@ Patch0:         xsd-3.2.0-xsdcxx-rename.patch
 Patch1:         xsd-3.2.0-manfix.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  m4 boost-devel xerces-c-devel
-# Requires:  ace-devel - only needed for applications using
-#                        Adaptive Communication Environment (ACE) streams,
-#                        enable when Fedora gets ACE packages.
-#                        See http://www.cs.wustl.edu/~schmidt/ACE.html and
-#                        https://bugzilla.redhat.com/show_bug.cgi?id=450164
-Requires:       xerces-c-devel
+BuildRequires:  boost-devel
+BuildRequires:	xerces-c-devel
+BuildRequires:	m4
 
 %description
 CodeSynthesis XSD is an open-source, cross-platform W3C XML Schema to
@@ -34,8 +30,16 @@ that semantically correspond to your application domain rather than
 dealing with intricacies of reading and writing XML.
 
 
+%package	devel
+Group:		System/Libraries
+Summary:	Development files for xsd
+Requires:	xerces-c-devel
+
+%description	devel
+This package provides development files for xsd.
+
 %package        doc
-Group:          Documentation
+Group:          Books/Computer books
 Summary:        API documentation files for %{name}
 
 %description    doc
@@ -100,8 +104,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc docdir/*
 %{_bindir}/xsdcxx
-%{_includedir}/xsd/
 %{_mandir}/man1/xsdcxx.1*
+
+%files devel
+%defattr(-,root,root,-)
+%{_includedir}/xsd/
 
 %files doc
 %defattr(-,root,root,-)
