@@ -39,6 +39,7 @@ dealing with intricacies of reading and writing XML.
 Group:		System/Libraries
 Summary:	Development files for xsd
 Requires:	xerces-c-devel
+Requires:	%{name} = %{version}
 
 %description	devel
 This package provides development files for xsd.
