@@ -1,5 +1,5 @@
 %define version 3.2.0
-%define rel 2
+%define rel 3
 %define release %mkrel %rel
 
 Name:		xsd
@@ -14,7 +14,7 @@ URL:            http://www.codesynthesis.com/products/xsd/
 Source0:        http://www.codesynthesis.com/download/xsd/3.2/xsd-%{version}+dep.tar.bz2
 Patch0:         xsd-3.2.0-xsdcxx-rename.patch
 Patch1:         xsd-3.2.0-manfix.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires:  boost-devel
 BuildRequires:	xerces-c-devel
