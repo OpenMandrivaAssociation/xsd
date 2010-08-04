@@ -1,5 +1,5 @@
 %define version 3.2.0
-%define rel 5
+%define rel 6
 %define release %mkrel %rel
 
 Name:		xsd
