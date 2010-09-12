@@ -1,5 +1,5 @@
-%define version 3.2.0
-%define rel 7
+%define version 3.3.0
+%define rel 1
 %define release %mkrel %rel
 
 Name:		xsd
@@ -11,9 +11,9 @@ Group:          Development/C++
 # Exceptions permit otherwise GPLv2 incompatible combination with ASL 2.0
 License:        GPLv2 with exceptions and ASL 2.0  
 URL:            http://www.codesynthesis.com/products/xsd/
-Source0:        http://www.codesynthesis.com/download/xsd/3.2/xsd-%{version}+dep.tar.bz2
-Patch0:         xsd-3.2.0-xsdcxx-rename.patch
-Patch1:         xsd-3.2.0-manfix.patch
+Source0:        http://www.codesynthesis.com/download/xsd/3.3/xsd-%{version}+dep.tar.bz2
+# Suggestion sent to upstream via e-mail 20090707
+Patch0:         xsd-3.3.0-xsdcxx-rename.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires:  boost-devel
@@ -54,21 +54,19 @@ This package contains API documentation for %{name}.
 
 %prep
 %setup -q -n xsd-%{version}+dep
-pushd xsd-*
+pushd xsd
 %patch0 -p1 -b .xsdcxx-rename
-%patch1 -p1 -b .manfix
 popd
 
-
 %build
-MAKEFLAGS="verbose=1" CXXFLAGS=$RPM_OPT_FLAGS ./build.sh
+make verbose=1 CXXFLAGS="$RPM_OPT_FLAGS"
 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 rm -rf apidocdir
 
-MAKEFLAGS="install_prefix=$RPM_BUILD_ROOT%{_prefix}" ./build.sh install
+make install_prefix="$RPM_BUILD_ROOT%{_prefix}" install
 
 # Split API documentation to -doc subpackage.
 mkdir apidocdir
@@ -84,6 +82,8 @@ for file in docdir/NEWS; do
 done
 
 # Rename binary to xsdcxx to avoid conflicting with mono-web package.
+# Sent suggestion to upstream via e-mail 20090707
+# they will consider renaming in 4.0.0
 mv $RPM_BUILD_ROOT%{_bindir}/xsd $RPM_BUILD_ROOT%{_bindir}/xsdcxx
 mv $RPM_BUILD_ROOT%{_mandir}/man1/xsd.1 $RPM_BUILD_ROOT%{_mandir}/man1/xsdcxx.1
 
