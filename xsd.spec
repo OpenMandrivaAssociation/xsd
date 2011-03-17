@@ -59,7 +59,7 @@ pushd xsd
 popd
 
 %build
-make verbose=1 CXXFLAGS="$RPM_OPT_FLAGS"
+make verbose=0 CXXFLAGS="%optflags -DBOOST_FILESYSTEM_VERSION=2"
 
 
 %install
