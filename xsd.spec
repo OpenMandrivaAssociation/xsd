@@ -1,12 +1,12 @@
 Summary:	W3C XML schema to C++ data binding compiler
 Name:		xsd
 Version:	3.3.0
-Release:	3
+Release:	4
 Group:		Development/C++
 # Exceptions permit otherwise GPLv2 incompatible combination with ASL 2.0
-License:	GPLv2 with exceptions and ASL 2.0  
+License:	GPLv2 with exceptions and ASL 2.0
 URL:		http://www.codesynthesis.com/products/xsd/
-Source0:	http://www.codesynthesis.com/download/xsd/3.3/xsd-%{version}+dep.tar.bz2
+Source0:	http://www.codesynthesis.com/download/xsd/3.3/xsd-%{version}-2+dep.tar.bz2
 # Suggestion sent to upstream via e-mail 20090707
 Patch0:		xsd-3.3.0-xsdcxx-rename.patch
 
@@ -37,22 +37,22 @@ Requires:	%{name} = %{version}
 %description	devel
 This package provides development files for xsd.
 
-%package        doc
-Group:          Books/Computer books
-Summary:        API documentation files for %{name}
+%package	doc
+Group:		Books/Computer books
+Summary:	API documentation files for %{name}
 
-%description    doc
+%description	doc
 This package contains API documentation for %{name}.
 
 
 %prep
-%setup -q -n xsd-%{version}+dep
+%setup -q -n xsd-%{version}-2+dep
 pushd xsd
 %patch0 -p1 -b .xsdcxx-rename
 popd
 
 %build
-make verbose=0 CXXFLAGS="%optflags -DBOOST_FILESYSTEM_VERSION=2"
+make verbose=0 CXXFLAGS="%{optflags}"
 
 %install
 rm -rf apidocdir
