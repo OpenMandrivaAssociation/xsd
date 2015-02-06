@@ -1,7 +1,7 @@
 Summary:	W3C XML schema to C++ data binding compiler
 Name:		xsd
 Version:	3.3.0
-Release:	4
+Release:	5
 Group:		Development/C++
 # Exceptions permit otherwise GPLv2 incompatible combination with ASL 2.0
 License:	GPLv2 with exceptions and ASL 2.0
