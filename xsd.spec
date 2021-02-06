@@ -45,8 +45,8 @@ dealing with intricacies of reading and writing XML.
 #---------------------------------------------------------------------------
 
 %package	devel
-Group:		System/Libraries
 Summary:	Development files for xsd
+Group:		System/Libraries
 Requires:	xerces-c-devel
 Requires:	%{name} = %{version}
 
@@ -59,9 +59,9 @@ This package provides development files for xsd.
 #---------------------------------------------------------------------------
 
 %package	doc
-Group:		Books/Computer books
 Summary:	API documentation files for %{name}
-
+Group:		Books/Computer books
+BuildRequires:	ghostscript
 %description	doc
 This package contains API documentation for %{name}.
 
