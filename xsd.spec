@@ -10,7 +10,7 @@ Release:	4
 Group:		Development/C++
 # Exceptions permit otherwise GPLv2 incompatible combination with ASL 2.0
 License:	GPLv2 with exceptions and ASL 2.0
-URL:		http://www.codesynthesis.com/products/xsd/
+URL:		https://www.codesynthesis.com/products/xsd/
 Source0:	https://codesynthesis.com/~boris/tmp/xsd/%{version}.a11/xsd-%{version}.a11+dep.tar.bz2
 # (fedora)  Suggestion sent to upstream via e-mail 20090707
 Patch0:		xsd-4.1.0-xsdcxx-rename.patch
