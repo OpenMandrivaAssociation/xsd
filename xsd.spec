@@ -22,6 +22,7 @@ Patch1: %{name}-xerces_3-2.patch
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(xerces-c)
 BuildRequires:	m4
+BuildRequires:	locales-extra-charsets
 # Requires:  ace-devel - only needed for applications using
 #                        Adaptive Communication Environment (ACE) streams,
 #                        enable when Fedora gets ACE packages.
